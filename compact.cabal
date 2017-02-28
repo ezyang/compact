@@ -23,6 +23,7 @@ category:            Data
 build-type:          Simple
 extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
+extra-source-files:  README.md tests/sample1.hs tests/sample2.hs
 
 library
   exposed-modules:     Data.Compact
