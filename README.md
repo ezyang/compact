@@ -168,7 +168,8 @@ write a compact to a file, and read it back again:
 import Data.Compact
 import Data.Compact.Serialize
 main = do
-    writeCompact @(String, Bool) "somefile" ("I want to serialize this", True)
+    orig_c <- compact ("I want to serialize this", True)
+    writeCompact @(String, Bool) "somefile" orig_c
     res <- unsafeReadCompact @(String, Bool) "somefile"
     case res of
         Left err -> fail err

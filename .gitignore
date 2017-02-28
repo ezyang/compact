@@ -3,3 +3,8 @@ dist-newstyle
 dist
 TAGS
 tags
+*.o
+*.hi
+tests/sample1
+tests/sample2
+tests/somefile

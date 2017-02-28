@@ -17,6 +17,7 @@ license:             BSD3
 license-file:        LICENSE
 author:              Edward Z. Yang, Ben Gamari
 maintainer:          ezyang@mit.edu, ben@smart-cactus.org
+homepage:            https://github.com/ezyang/compact
 copyright:           (c) 2017 Edward Z. Yang, Ben Gamari
 category:            Data
 build-type:          Simple
