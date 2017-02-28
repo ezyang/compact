@@ -1,5 +1,5 @@
 name:                compact
-version:             0.1.0.0
+version:             0.1.0.1
 synopsis:            Non-GC'd, contiguous storage for immutable data structures
 description:
     This package provides user-facing APIs for working with
