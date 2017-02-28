@@ -1,6 +1,6 @@
 # compact
 
-[![Hackage version](https://img.shields.io/hackage/v/binary.svg?label=Hackage)](https://hackage.haskell.org/package/compact)
+[![Hackage version](https://img.shields.io/hackage/v/compact.svg?label=Hackage)](https://hackage.haskell.org/package/compact)
 
 *Non-GC'd, contiguous storage for immutable data structures.*
 
@@ -44,7 +44,7 @@ simple program which reads a dictionary into a set, and then tests an input
 word-by-word to see if it is in the set or not (yes, it is a *very* simple
 spell checker):
 
-``
+```
 import System.Environment (getArgs)
 import qualified Data.Set as Set
 import System.IO
@@ -61,7 +61,7 @@ readFileLatin1 f = do
   h <- openFile f ReadMode
   hSetEncoding h latin1
   hGetContents h
-``
+```
 
 Converting this program to use a compact region on the dictionary is very
 simple: add `import Data.Compact`, and convert `let set = Set.fromList (words
