@@ -1,0 +1,42 @@
+name:                compact
+version:             0.1.0.0
+synopsis:            Non-GC'd, contiguous storage for immutable data structures
+description:
+    This package provides user-facing APIs for working with
+    "compact regions", which hold a fully evaluated Haskell object graph.
+    These regions maintain the invariant that no pointers live inside the struct
+    that point outside it, which ensures efficient garbage collection without
+    ever reading the structure contents (effectively, it works as a manually
+    managed "oldest generation" which is never freed until the whole is
+    released).
+
+    This package is currently highly experimental, but we hope it may
+    be useful to some people.  It is GHC 8.2 only.  The bare-bones library
+    that ships with GHC is ghc-compact.
+license:             BSD3
+license-file:        LICENSE
+author:              Edward Z. Yang, Ben Gamari
+maintainer:          ezyang@mit.edu, ben@smart-cactus.org
+copyright:           (c) 2017 Edward Z. Yang, Ben Gamari
+category:            Data
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Data.Compact
+                       Data.Compact.Serialize
+  build-depends:       base       >= 4.10 && < 4.11,
+                       ghc-compact,
+                       -- TODO: SomeTypeRep instance is in unreleased version
+                       -- of binary that is bundled with GHC dev branch
+                       binary     >= 0.8.4.1 && < 0.9,
+                       bytestring >= 0.10 && < 0.11
+  default-language:    Haskell2010
+
+test-suite compact-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      tests
+  main-is:             compact-test.hs
+  build-depends:       compact, base, directory
+  default-language:    Haskell2010
