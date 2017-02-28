@@ -1,3 +1,5 @@
 cabal.project.local
 dist-newstyle
 dist
+TAGS
+tags

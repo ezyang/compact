@@ -1,3 +1,5 @@
+{-# LANGUAGE TypeApplications #-}
+
 import Data.Compact
 import Data.Compact.Serialize
 import Control.Exception
@@ -14,11 +16,11 @@ main = do
     hPutCompact h c
     hClose h
     performMajorGC
-    r <- unsafeReadCompact fp
+    r <- unsafeReadCompact @(String, Int, Int, Integer, Maybe Int) fp
     c' <- case r of
             Left err -> fail err
             Right x -> return x
     removeFile fp
-    print (getCompact c' :: (String, Int, Int, Integer, Maybe Int))
+    print (getCompact c')
     when (val /= getCompact c') $ fail "did not match"
     putStrLn "OK"
