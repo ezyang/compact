@@ -37,13 +37,21 @@ newtype CompactFile a = CompactFile (SerializedCompact a)
 -- ghc-compact does not have a binary dependency
 instance (Typeable a) => B.Binary (CompactFile a) where
     get = do
+        magic <- B.get
+        when (magic /= magicNumber) $
+            fail "Data.Compact.Serialized: bad magic number"
         SomeTypeRep tyrep <- B.get
         case tyrep `eqTypeRep` typeRep @a of
           Just HRefl -> CompactFile <$> getSerializedCompact
           Nothing -> fail $
             "Data.Compact.Serialized: expected " ++ show (typeRep @a) ++
             " but got " ++ show tyrep
-    put (CompactFile a) = B.put (typeRep @a) >> putSerializedCompact a
+    put (CompactFile a) = B.put magicNumber >> B.put (typeRep @a) >> putSerializedCompact a
+
+-- Serves as a very rudimentary integrity check.
+-- Chosen at random by roll of a 2^64-sided die; it was a sight to behold.
+magicNumber :: Word64
+magicNumber = 0x7c155e7a53f094f2
 
 putPtr :: Ptr a -> B.Put
 putPtr = B.put @Word64 . fromIntegral . ptrToWordPtr
