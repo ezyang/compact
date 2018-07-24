@@ -11,8 +11,8 @@ description:
     released).
 
     This package is currently highly experimental, but we hope it may
-    be useful to some people.  It is GHC 8.2 only.  The bare-bones library
-    that ships with GHC is ghc-compact.
+    be useful to some people.  It is GHC 8.2 and later only.  
+    The bare-bones library that ships with GHC is @ghc-compact@.
 license:             BSD3
 license-file:        LICENSE
 author:              Edward Z. Yang, Ben Gamari

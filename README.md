@@ -18,8 +18,8 @@ structure in a compact region, after the initial cost of copying the data into
 the region, you should see a speedup in your major GC runs.
 
 This package is currently highly experimental, but we hope it may be useful to
-some people.  It is GHC 8.2 only.  The bare-bones library that ships with GHC is
-ghc-compact.
+some people.  It is GHC 8.2 and later only.  The bare-bones library that ships
+with GHC is `ghc-compact`.
 
 ## Quick start
 
