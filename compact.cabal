@@ -1,5 +1,5 @@
 name:                compact
-version:             0.1.0.1
+version:             0.2.0.0
 synopsis:            Non-GC'd, contiguous storage for immutable data structures
 description:
     This package provides user-facing APIs for working with
@@ -29,6 +29,10 @@ tested-with:         GHC==8.2.1, GHC==8.2.2,
                      GHC==8.6.1, GHC==8.6.2, GHC==8.6.3, GHC==8.6.4, GHC==8.6.5,
                      GHC==8.8.1, GHC==8.8.2, GHC==8.8.3,
                      GHC==8.10.1
+
+source-repository head
+  type:                git
+  location:            https://github.com/ezyang/compact
 
 library
   exposed-modules:     Data.Compact
