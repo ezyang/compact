@@ -2,7 +2,6 @@
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE MagicHash #-}
 {-# LANGUAGE GADTs #-}
-{-# LANGUAGE ForeignFunctionInterface #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
@@ -14,7 +13,6 @@ module Data.Compact.Serialize
 import Type.Reflection
 import Control.Monad
 import Data.Monoid
-import Data.IORef
 import Data.Word
 import System.IO
 
@@ -23,10 +21,7 @@ import Foreign.Storable
 import Foreign.Marshal.Alloc
 
 import qualified Data.Binary as B
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Unsafe as BSU
 import qualified Data.ByteString.Lazy as BSL
-import qualified Data.ByteString.Builder as BSB
 
 import GHC.Compact
 import GHC.Compact.Serialized
