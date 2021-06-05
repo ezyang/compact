@@ -33,7 +33,7 @@ tested-with:         GHC==8.2.1, GHC==8.2.2,
 library
   exposed-modules:     Data.Compact
                        Data.Compact.Serialize
-  build-depends:       base       >= 4.10 && < 4.15,
+  build-depends:       base       >= 4.10 && < 4.16,
                        ghc-compact,
                        -- TODO: SomeTypeRep instance is in unreleased version
                        -- of binary that is bundled with GHC dev branch
