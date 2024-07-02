@@ -38,7 +38,7 @@ library
                        -- TODO: SomeTypeRep instance is in unreleased version
                        -- of binary that is bundled with GHC dev branch
                        binary     >= 0.8.4.1 && < 0.11,
-                       bytestring >= 0.10 && < 0.12
+                       bytestring >= 0.10 && < 0.13
   default-language:    Haskell2010
 
 test-suite compact-test
